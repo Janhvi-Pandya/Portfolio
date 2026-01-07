@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Janhvi Portfolio</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janhvi Pandya • Data Science Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Janhvi Pandya — Computer Science student (UVic) focused on data analysis & data science."
+  />
+
+  <style>
+    :root {
+      --bg: #070A12;          /* near-black */
+      --panel: #0B1220;       /* dark blue-gray */
+      --panel2: #0F1B2E;      /* slightly brighter */
+      --text: #E6E9F2;        /* off-white */
+      --muted: #A9B1C6;       /* gray */
+      --line: #1C2A44;        /* border */
+      --accent: #66B3FF;      /* soft tech blue */
+      --accent2: #7CFFCB;     /* subtle mint highlight */
+      --shadow: 0 14px 40px rgba(0, 0, 0, .45);
+      --radius: 16px;
+
+      --focus: rgba(102, 179, 255, .55);
+      --glass: rgba(7, 10, 18, .60);
+      --glass2: rgba(7, 10, 18, .35);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 500px at 10% 0%, rgba(102, 179, 255, .14), transparent 60%),
+        radial-gradient(900px 450px at 90% 10%, rgba(124, 255, 203, .12), transparent 55%),
+        linear-gradient(180deg, var(--bg), #05070D 70%);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Better default selection */
+    ::selection { background: rgba(102, 179, 255, .22); }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover { color: var(--accent); }
+
+    /* Focus styles */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 10px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      transform: translateY(-200%);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(11, 18, 32, .92);
+      border: 1px solid rgba(28, 42, 68, .9);
+      color: var(--text);
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: var(--glass);
+      border-bottom: 1px solid rgba(28, 42, 68, .65);
+    }
+
+    .nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(102, 179, 255, .12);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .15s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(102, 179, 255, .25);
+      background: rgba(102, 179, 255, .06);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav-inner { align-items: flex-start; }
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(15, 27, 46, .96), rgba(11, 18, 32, .96));
+      border: 1px solid rgba(28, 42, 68, .88);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-main {
+      padding: 22px 22px 18px;
+      position: relative;
+    }
+
+    /* subtle top glow */
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: -2px -2px auto -2px;
+      height: 140px;
+      background: radial-gradient(420px 140px at 20% 10%, rgba(102, 179, 255, .20), transparent 60%),
+                  radial-gradient(420px 140px at 75% 20%, rgba(124, 255, 203, .14), transparent 55%);
+      pointer-events: none;
+      opacity: .9;
+    }
+
+    .hero-main > * { position: relative; }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 10px 0 8px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 14px;
+      max-width: 66ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(28, 42, 68, .88);
+      background: rgba(7, 10, 18, .45);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      cursor: pointer;
+      user-select: none;
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(102, 179, 255, .38);
+      background: rgba(102, 179, 255, .08);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(102, 179, 255, .20), rgba(124, 255, 203, .13));
+      border-color: rgba(102, 179, 255, .40);
+    }
+
+    .btn small {
+      color: var(--muted);
+      font-weight: 550;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(28, 42, 68, .88);
+      background: rgba(7, 10, 18, .35);
+      white-space: nowrap;
+    }
+
+    /* Skillset details */
+    details.panel {
+      margin-top: 14px;
+      padding: 14px 14px 12px;
+      background: rgba(7, 10, 18, .26);
+      border: 1px solid rgba(28, 42, 68, .78);
+      border-radius: 14px;
+    }
+
+    details.panel summary {
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    details.panel summary::-webkit-details-marker { display: none; }
+
+    details.panel summary strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    details.panel summary strong::after {
+      content: "▾";
+      font-weight: 800;
+      color: rgba(230, 233, 242, .85);
+      transform: translateY(-1px);
+      transition: transform .18s ease;
+    }
+
+    details.panel[open] summary strong::after { transform: rotate(180deg); }
+
+    details.panel h4 {
+      margin: 12px 0 6px;
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(230, 233, 242, .92);
+    }
+
+    details.panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Side info card */
+    .hero-side {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: sticky;
+      top: 74px; /* under nav */
+    }
+
+    @media (max-width: 900px) {
+      .hero-side { position: static; }
+    }
+
+    .pill {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(7, 10, 18, .35);
+      border: 1px solid rgba(28, 42, 68, .78);
+    }
+
+    .pill .label {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .pill .value {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      color: rgba(230, 233, 242, .85);
+    }
+
+    /* Sections */
+    section { margin-top: 18px; }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 28px 2px 10px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    @media (max-width: 900px) {
+      .col-6, .col-4, .col-8 { grid-column: span 12; }
+    }
+
+    .panel {
+      padding: 16px 16px 14px;
+    }
+
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      letter-spacing: .15px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .muted { color: var(--muted); }
+
+    /* Labs filter */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 0;
+    }
+
+    .chip {
+      border: 1px solid rgba(28, 42, 68, .88);
+      background: rgba(7, 10, 18, .35);
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .chip:hover {
+      border-color: rgba(102, 179, 255, .38);
+      color: var(--text);
+      background: rgba(102, 179, 255, .06);
+    }
+
+    .chip.active {
+      border-color: rgba(102, 179, 255, .44);
+      background: rgba(102, 179, 255, .10);
+      color: var(--text);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 26px;
+      padding: 18px 2px 0;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid rgba(28, 42, 68, .65);
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#projects">Skip to content</a>
+
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <div class="brand" aria-label="Site title">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Janhvi Pandya</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#labs">Labs</a>
+        <a href="#subjects">Relevant Subjects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- HERO -->
+    <div class="hero" aria-label="Introduction">
+      <section class="card hero-main" aria-label="Summary">
+        <div class="kicker">Computer Science @ University of Victoria</div>
+        <h1>Janhvi Pandya</h1>
+
+        <p class="subtitle">
+          Fourth-year Computer Science student at the University of Victoria specializing in data analysis and data science.
+          Strong experience in Python, SQL, R, and Power BI, with hands-on work in data cleaning, exploratory analysis,
+          predictive modeling, and visualization.
+          <br /><br />
+          Passionate about using data to drive decisions and build scalable, insight-focused solutions. Seeking data analyst
+          or data science roles in analytics-driven teams.
+        </p>
+
+        <div class="cta-row" aria-label="Primary links">
+          <!-- DO NOT CHANGE LINKS -->
+          <a class="btn primary" href="https://www.linkedin.com/in/janhvi-pandya-585a051b6/" target="_blank" rel="noreferrer">
+            LinkedIn <small>→</small>
+          </a>
+          <a class="btn" href="https://github.com/Janhvi-Pandya" target="_blank" rel="noreferrer">
+            GitHub <small>→</small>
+          </a>
+          <a class="btn" href="mailto:janhvipandya@uvic.ca">
+            Email <small>→</small>
+          </a>
+        </div>
+
+        <div class="tags" aria-label="Key skills">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">R</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Excel</span>
+          <span class="tag">EDA</span>
+          <span class="tag">Statistics</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Data Visualization</span>
+          <span class="tag">ETL</span>
+        </div>
+
+        <details class="panel" aria-label="Full technical skillset">
+          <summary><strong>View full technical skillset</strong></summary>
+
+          <h4>Programming &amp; Querying</h4>
+          <p>Python, SQL, R, Bash</p>
+
+          <h4>Data Analysis &amp; Statistics</h4>
+          <p>Data Cleaning, EDA, Hypothesis Testing, Regression, Feature Engineering</p>
+
+          <h4>Machine Learning</h4>
+          <p>Classification, Regression, Clustering, PCA, Model Evaluation, Cross-Validation</p>
+
+          <h4>Visualization &amp; BI</h4>
+          <p>Power BI, Excel (Pivot Tables, Power Query), Data Storytelling</p>
+
+          <h4>Tools &amp; Platforms</h4>
+          <p>Git, GitHub, Jupyter, Streamlit, APIs</p>
+        </details>
+      </section>
+
+      <aside class="card hero-side" aria-label="Quick facts">
+        <div class="pill">
+          <div>
+            <div class="label">Location</div>
+            <div class="value">Vancouver, BC</div>
+          </div>
+          <div class="mono">Canada</div>
+        </div>
+
+        <div class="pill">
+          <div>
+            <div class="label">Degree</div>
+            <div class="value">BSc Computer Science</div>
+          </div>
+          <div class="mono">UVic</div>
+        </div>
+
+        <div class="pill">
+          <div>
+            <div class="label">Cert</div>
+            <div class="value">Google Data Analytics</div>
+          </div>
+          <div class="mono">Professional Certificate</div>
+        </div>
+
+        <div class="pill">
+          <div>
+            <div class="label">Focus</div>
+            <div class="value">Analytics • ML • Viz</div>
+          </div>
+          <div class="mono">Data-first</div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-label="Highlighted Projects">
+      <div class="section-head">
+        <h2>Highlighted Projects</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card panel col-6">
+          <h3>Municipal Utility Revenue Forecasting (2025)</h3>
+          <p>
+            Cleaned and standardized 25,000+ billing rows (Power Query), built consumption/revenue models,
+            and created a 12-month forecast with accuracy checks (MAPE).
+          </p>
+          <div class="tags">
+            <span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Forecasting</span>
+          </div>
+          <div class="cta-row" style="margin-top:10px;"></div>
+        </article>
+
+        <article class="card panel col-6">
+          <h3>Music Genre Classification (Jan–Apr 2025)</h3>
+          <p>
+            Built Random Forest, KNN, and neural models on Spotify data; improved multiclass results with PCA and preprocessing.
+            Automated training + results logging with GitHub Actions.
+          </p>
+          <div class="tags">
+            <span class="tag">ML</span><span class="tag">PCA</span><span class="tag">GitHub Actions</span>
+          </div>
+          <div class="cta-row" style="margin-top:10px;">
+            <!-- DO NOT CHANGE LINKS -->
+            <a class="btn" href="https://github.com/Janhvi-Pandya/genre-classification-ml" target="_blank" rel="noreferrer">Repo</a>
+            <a class="btn" href="https://docs.google.com/document/d/1FfgZ3I5dd48rhTJ7JOYiDKPfTsw3jRHg3dhYDC7xiNM/edit?usp=sharing" target="_blank" rel="noreferrer">Report</a>
+          </div>
+        </article>
+
+        <article class="card panel col-6">
+          <h3>Sales Forecasting + BI Integration (Apr–Jun 2025)</h3>
+          <p>
+            Trained ensemble regressors (XGBoost / Random Forest) with R²≈0.91, deployed a Streamlit app,
+            and built Power BI dashboards for predicted vs. actual analysis.
+          </p>
+          <div class="tags">
+            <span class="tag">XGBoost</span><span class="tag">Streamlit</span><span class="tag">Power BI</span>
+          </div>
+          <div class="cta-row" style="margin-top:10px;">
+            <!-- DO NOT CHANGE LINKS -->
+            <a class="btn" href="https://github.com/Janhvi-Pandya/sales-forecasting-app" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+
+        <article class="card panel col-6">
+          <h3>EduConnect Database System (Mar–Jul 2024)</h3>
+          <p>
+            Built a Python–MySQL system with authentication + CRUD + access control,
+            including automated MySQL setup to reduce deployment errors.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Backend</span>
+          </div>
+          <div class="cta-row" style="margin-top:10px;">
+            <!-- DO NOT CHANGE LINKS -->
+            <a class="btn" href="https://github.com/Janhvi-Pandya/CSC370_Project" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LABS -->
+    <section id="labs" aria-label="Labs">
+      <div class="section-head">
+        <h2>Labs</h2>
+      </div>
+
+      <!-- Filters (keeps your existing JS working) -->
+      <div class="filters" aria-label="Lab filters">
+        <button class="chip active" type="button" data-filter="all">All</button>
+        <button class="chip" type="button" data-filter="ai">AI</button>
+        <button class="chip" type="button" data-filter="mining">Data Mining</button>
+        <button class="chip" type="button" data-filter="ml">ML</button>
+      </div>
+
+      <div class="grid" style="margin-top:12px;">
+        <!-- Intro to AI Repo -->
+        <article class="card panel col-6 lab" data-tags="all ai ml">
+          <h3>Intro to Artificial Intelligence — Lab Repository</h3>
+
+          <p>
+            A curated set of applied AI notebooks covering <strong>search algorithms</strong>,
+            <strong>constraint satisfaction</strong>, <strong>probabilistic reasoning</strong>,
+            and <strong>supervised learning</strong>. Each lab emphasizes clear implementation,
+            metric-based evaluation, and short write-ups—so reviewers can quickly understand the approach
+            and results without digging through raw coursework.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Search Algorithms</span>
+            <span class="tag">CSP</span>
+            <span class="tag">Bayesian Inference</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Evaluation</span>
+          </div>
+
+          <div class="cta-row" style="margin-top:10px;">
+            <!-- DO NOT CHANGE LINKS -->
+            <a class="btn primary" href="https://github.com/Janhvi-Pandya/intro-to-ai-labs-" target="_blank" rel="noreferrer">
+              View Repo
+            </a>
+          </div>
+
+          <p class="muted" style="margin-top:10px;">
+            <strong>What you’ll see inside:</strong> a README with a quick overview + 4 featured notebooks (and optional HTML exports) for fast review.
+          </p>
+        </article>
+
+        <!-- Data Mining Repo -->
+        <article class="card panel col-6 lab" data-tags="all mining ml">
+          <h3>Data Mining — Lab Repository</h3>
+
+          <p>
+            Applied data mining notebooks focused on <strong>EDA &amp; preprocessing</strong>,
+            <strong>supervised classification</strong>, and <strong>unsupervised clustering</strong>.
+            Includes model comparisons, hyperparameter tuning, and evaluation artifacts (plots + reports),
+            demonstrating an end-to-end workflow similar to real data analyst / data science projects.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">EDA</span>
+            <span class="tag">Data Cleaning</span>
+            <span class="tag">Supervised Learning</span>
+            <span class="tag">Clustering</span>
+            <span class="tag">Model Evaluation</span>
+          </div>
+
+          <div class="cta-row" style="margin-top:10px;">
+            <!-- DO NOT CHANGE LINKS -->
+            <a class="btn primary" href="https://github.com/Janhvi-Pandya/data-mining-labs" target="_blank" rel="noreferrer">
+              View Repo
+            </a>
+          </div>
+
+          <p class="muted" style="margin-top:10px;">
+            <strong>What you’ll see inside:</strong> a README with summaries + notebooks + optional PDF/HTML outputs showing results and interpretation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <section id="subjects" aria-label="Relevant Subjects">
+      <div class="section-head">
+        <h2>Relevant Subjects</h2>
+        <p>Coursework aligned to data + ML.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card panel col-6">
+          <h3>Data / Analytics</h3>
+          <div class="tags">
+            <span class="tag">Data Science</span>
+            <span class="tag">Data Mining</span>
+            <span class="tag">Probability &amp; Statistics</span>
+            <span class="tag">Numerical Analysis</span>
+            <span class="tag">Database Systems</span>
+          </div>
+        </div>
+
+        <div class="card panel col-6">
+          <h3>Core CS</h3>
+          <div class="tags">
+            <span class="tag">Algorithms &amp; Data Structures II</span>
+            <span class="tag">Programming</span>
+            <span class="tag">Software Practices</span>
+          </div>
+          <p style="margin-top:10px;">Keep it concise—recruiters scan fast.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-label="Experience and Leadership">
+      <div class="section-head">
+        <h2>Experience &amp; Leadership</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card panel col-6">
+          <h3>Computer Science Teaching &amp; Lab Assistant (2020–2022)</h3>
+          <p class="muted">Shree Naraayana Central School — Ahmedabad, Gujarat</p>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Teaching</span><span class="tag">Debugging</span><span class="tag">Documentation</span>
+          </div>
+        </div>
+
+        <div class="card panel col-6">
+          <h3>Leadership</h3>
+          <p>
+            Team Lead — Renewable Energy Prototype (WEST × Schneider Electric, 2024)<br />
+            Project Leader — Phi Theta Kappa Honors in Action (2022–2023)<br />
+            Head Girl — Shree Naraayana Central School (2018–2020)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-label="Contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Let’s talk about data projects, internships, and research.</p>
+      </div>
+
+      <div class="card panel">
+        <p>
+          Email: <a href="mailto:janhvipandya@uvic.ca">janhvipandya@uvic.ca</a><br />
+          Phone: +1 (236) 969 5316<br />
+          Location: Vancouver, BC
+        </p>
+
+        <div class="cta-row" style="margin-top:12px;">
+          <!-- DO NOT CHANGE LINKS -->
+          <a class="btn primary" href="mailto:janhvipandya@uvic.ca">Send email</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer" role="contentinfo">
+      <div>© <span id="year"></span> Janhvi Pandya</div>
+    </div>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Labs filter
+    const chips = document.querySelectorAll(".chip");
+    const labs = document.querySelectorAll(".lab");
+
+    function setActive(btn) {
+      chips.forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    function applyFilter(filter) {
+      labs.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").split(" ");
+        const show = (filter === "all") || tags.includes(filter);
+        card.style.display = show ? "" : "none";
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        setActive(btn);
+        applyFilter(filter);
+      });
+    });
+  </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
